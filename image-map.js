@@ -3,7 +3,7 @@
  * Image-Map v1.0.8 (https://www.travismclarke.com)
  * Copyright 2018 Travis Clarke
  * License: Apache-2.0
- *
+ * 
  * @preserve
  */
 
@@ -38,12 +38,10 @@
 
                 if (typeof img.getAttribute('usemap') === 'undefined') { return; }
 
+                newImg.src = img.getAttribute('src');
                 newImg.addEventListener('load', function () {
-                    var clone = new Image();
-                    clone.src = img.getAttribute('src');
-
-                    var w = img.getAttribute('width') || clone.width,
-                        h = img.getAttribute('height') || clone.height,
+                    var w = img.getAttribute('width') || newImg.width,
+                        h = img.getAttribute('height') || newImg.height,
                         wPercent = img.offsetWidth / 100,
                         hPercent = img.offsetHeight / 100,
                         map = img.getAttribute('usemap').replace('#', ''),
